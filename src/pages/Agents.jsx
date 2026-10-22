@@ -1,12 +1,50 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Logo from '../components/Logo';
+import { useGSAP } from '@gsap/react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger)
 
 const Agents = () => {
+  const imageDivRef = useRef(null)
+  const imageRef = useRef(null)
+
+  const imageArray = [
+    'images/Carl_480x640.jpg',
+    'images/Olivier_480x640.jpg',
+    'images/ChantalG_480x640.jpg',
+    'images/Michele_480X640.jpg',
+    'images/MEL_480X640.jpg',
+    'images/CAMILLE_480X640_2.jpg',
+    'images/MEGGIE_480X640_2.jpg',
+    'images/joel_480X640_3.jpg'
+  ]
+
+  useGSAP(()=>{
+    gsap.to(imageDivRef.current, {
+      scrollTrigger: {
+        trigger: imageDivRef.current,
+        start: 'top 31.3%',
+        end: 'top -105%',
+        pin: true,
+        scrub: 2,
+        onUpdate: (e) => {
+          let imageIndex = Math.round(imageArray.length * e.progress)
+          if (imageIndex < 8) {
+            imageRef.current.src = imageArray[imageIndex]
+          } else {
+            imageIndex = imageArray.length - 1
+          }
+        }
+      }
+    })
+  })
   return (
     <div>
       <Logo />
-      <div className='rounded-xl h-73  fixed top-66 left-112 -z-1 overflow-hidden '>
-        <img src='images/Carl_480x640.jpg' className="size-full object-cover object-center" alt="" />
+      <div ref={imageDivRef} className='rounded-2xl h-73  absolute top-66 left-112 -z-1 overflow-hidden '>
+        <img ref={imageRef} className="size-full object-cover object-center" alt="" />
       </div>
       <div className='text-[20vw]/[0.85] mt-[50vh] uppercase text-center'>
         Soixan7e
