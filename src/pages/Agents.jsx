@@ -5,12 +5,15 @@ const Agents = () => {
   return (
     <div>
       <Logo />
+      <div className='rounded-xl h-73  fixed top-66 left-112 -z-1 overflow-hidden '>
+        <img src='images/Carl_480x640.jpg' className="size-full object-cover object-center" alt="" />
+      </div>
       <div className='text-[20vw]/[0.85] mt-[50vh] uppercase text-center'>
         Soixan7e
         Douze
       </div>
       <div className='flex justify-end'>
-        <p className='text-5xl w-[60%] pr-10'>Notre curiosité nourrit notre créativité. On reste humbles et on dit non aux gros egos, même le vôtre. Une marque est vivante. Elle a des valeurs, une personnalité, une histoire. Si on oublie ça, on peut faire de bons chiffres à court terme, mais on la tue à long terme. C’est pour ça qu’on s’engage à donner de la perspective, pour bâtir des marques influentes.</p>
+        <p className='text-[3.8vw]/none w-[60%] pr-10'>Notre curiosité nourrit notre créativité. On reste humbles et on dit non aux gros egos, même le vôtre. Une marque est vivante. Elle a des valeurs, une personnalité, une histoire. Si on oublie ça, on peut faire de bons chiffres à court terme, mais on la tue à long terme. C’est pour ça qu’on s’engage à donner de la perspective, pour bâtir des marques influentes.</p>
       </div>
       <div>
         <div className='grid grid-cols-3 mt-50 mb-40 text-xl px-40 w-full gap-20'>
