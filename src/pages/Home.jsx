@@ -7,7 +7,7 @@ const Home = () => {
         <div className='h-screen overflow-hidden relative'>
             <video className='size-full fixed top-0 left-0 object-cover object-center -z-1' autoPlay muted loop src="69496b2d.mp4"></video>
             <div className='flex justify-between items-start'>
-                <Logo />
+                <Logo fill='white'/>
                 <div className='w-57 bg-black h-12.5 text-white py-5 px-8 flex flex-col items-end cursor-pointer'>
                     <hr className='w-12 border mb-1'/>
                     <hr className='w-6.5 border'/>
