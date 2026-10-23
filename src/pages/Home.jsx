@@ -19,13 +19,18 @@ const Home = ({ setToAgence, setToProjects, toAgence, toProjects }) => {
                 duration: 0.5,
                 ease: 'power2.inOut',
             })
-        } else {
-            video.play()
-            gsap.to(video, {
-                scale: 1,
-            })
         }
     }, [toAgence, toProjects])
+
+    useGSAP(()=>{
+        videoRef.current.pause()
+        gsap.from(videoRef.current, {
+            scale: 1.2,
+            duration: 0.8,
+            ease: 'power2.inOut',
+            onComplete: () => video.play()
+        })
+    })
     return (
         <div className='h-screen overflow-hidden relative'>
             <video ref={videoRef} className='size-full fixed top-0 left-0 object-cover object-center -z-1' autoPlay muted loop src="69496b2d.mp4"></video>
