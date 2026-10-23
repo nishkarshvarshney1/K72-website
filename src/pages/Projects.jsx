@@ -1,10 +1,10 @@
 import React from 'react'
 import Logo from '../components/Logo';
 
-const Projects = () => {
+const Projects = ({setToHome}) => {
   return (
     <div className=''>
-      <Logo />
+      <Logo setToHome={setToHome}/>
       <div>
         
       </div>

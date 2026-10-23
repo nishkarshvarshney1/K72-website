@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger)
 
-const Agents = () => {
+const Agents = ({setToHome}) => {
   const imageDivRef = useRef(null)
   const imageRef = useRef(null)
 
@@ -42,7 +42,7 @@ const Agents = () => {
   })
   return (
     <div>
-      <Logo />
+      <Logo setToHome={setToHome}/>
       <div ref={imageDivRef} className='rounded-2xl h-73  absolute top-66 left-112 -z-1 overflow-hidden '>
         <img ref={imageRef} className="size-full object-cover object-center" alt="" />
       </div>

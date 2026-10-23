@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
@@ -7,17 +7,21 @@ import LocomotiveScroll from 'locomotive-scroll';
 import StairTransition from './components/StairTransition';
 
 const App = () => {
+  const [toProjects, setToProjects] = useState(false)
+  const [toAgence, setToAgence] = useState(false)
+  const [toHome, setToHome] = useState(false)
   useEffect(() => {
     const locomotiveScroll = new LocomotiveScroll()
     return () => locomotiveScroll.destroy()
   }, [])
   return (
     <div>
-      <StairTransition />
+      <StairTransition toAgence={toAgence} toProjects={toProjects} setToAgence={setToAgence} setToProjects={setToProjects} 
+      setToHome={setToHome} toHome={toHome}/>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/projects' element={<Projects />} />
-        <Route path='/agence' element={<Agents />} />
+        <Route path='/' element={<Home setToProjects={setToProjects} setToAgence={setToAgence} setToHome={setToHome}/>} />
+        <Route path='/projects' element={<Projects setToHome={setToHome}/>} />
+        <Route path='/agence' element={<Agents setToHome={setToHome}/>} />
       </Routes>
     </div>
   )
