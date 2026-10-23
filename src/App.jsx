@@ -19,7 +19,7 @@ const App = () => {
       <StairTransition toAgence={toAgence} toProjects={toProjects} setToAgence={setToAgence} setToProjects={setToProjects} 
       setToHome={setToHome} toHome={toHome}/>
       <Routes>
-        <Route path='/' element={<Home setToProjects={setToProjects} setToAgence={setToAgence} setToHome={setToHome}/>} />
+        <Route path='/' element={<Home setToProjects={setToProjects} setToAgence={setToAgence} setToHome={setToHome} toAgence={toAgence} toProjects={toProjects}/>} />
         <Route path='/projects' element={<Projects setToHome={setToHome}/>} />
         <Route path='/agence' element={<Agents setToHome={setToHome}/>} />
       </Routes>

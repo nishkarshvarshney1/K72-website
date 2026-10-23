@@ -1,13 +1,36 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Link } from 'react-router-dom';
 import Logo from '../components/Logo';
+import { useGSAP } from '@gsap/react';
+import { gsap } from 'gsap';
 
-const Home = ({ setToAgence, setToProjects, setToHome }) => {
+const Home = ({ setToAgence, setToProjects, toAgence, toProjects }) => {
+
+    const videoRef = useRef()
+
+    useGSAP(() => {
+        const video = videoRef.current
+        if (!video) return
+
+        if (toAgence || toProjects) {
+            video.pause()
+            gsap.to(video, {
+                scale: 1.2,
+                duration: 0.5,
+                ease: 'power2.inOut',
+            })
+        } else {
+            video.play()
+            gsap.to(video, {
+                scale: 1,
+            })
+        }
+    }, [toAgence, toProjects])
     return (
         <div className='h-screen overflow-hidden relative'>
-            <video className='size-full fixed top-0 left-0 object-cover object-center -z-1' autoPlay muted loop src="69496b2d.mp4"></video>
+            <video ref={videoRef} className='size-full fixed top-0 left-0 object-cover object-center -z-1' autoPlay muted loop src="69496b2d.mp4"></video>
             <div className='flex justify-between items-start'>
-                <Logo fill='white' setToHome={setToHome}/>
+                <Logo fill='white' />
                 <div className='w-57 bg-black h-12.5 text-white py-5 px-8 flex flex-col items-end cursor-pointer'>
                     <hr className='w-12 border mb-1' />
                     <hr className='w-6.5 border' />
