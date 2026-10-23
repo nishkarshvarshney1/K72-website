@@ -37,6 +37,10 @@ const Home = ({ setToAgence, setToProjects, toAgence, toProjects }) => {
             ease: 'power2.inOut',
             onComplete: () => videoRef2.current.play()
         })
+        gsap.from('.js-transition > *', {
+            y: -100,
+            duration: 1
+        })
     })
     return (
         <div className='h-screen overflow-hidden relative'>
@@ -48,7 +52,7 @@ const Home = ({ setToAgence, setToProjects, toAgence, toProjects }) => {
                     <hr className='w-6.5 border' />
                 </div>
             </div>
-            <div className='uppercase flex items-center h-screen flex-col text-[9.5vw]/[0.43] font-light text-white -translate-y-7'>
+            <div className='js-transition uppercase flex items-center h-screen flex-col text-[9.5vw]/[0.43] font-light text-white -translate-y-7'>
                 <span>L'étincelle</span><br />
                 <div className='flex'>
                     <span>qui</span>
