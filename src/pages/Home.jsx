@@ -7,6 +7,7 @@ import { gsap } from 'gsap';
 const Home = ({ setToAgence, setToProjects, toAgence, toProjects }) => {
 
     const videoRef = useRef()
+    const videoRef2 = useRef()
 
     useGSAP(() => {
         const video = videoRef.current
@@ -28,7 +29,13 @@ const Home = ({ setToAgence, setToProjects, toAgence, toProjects }) => {
             scale: 1.2,
             duration: 0.8,
             ease: 'power2.inOut',
-            onComplete: () => video.play()
+            onComplete: () => videoRef.current.play()
+        })
+        videoRef2.current.pause()
+        gsap.from(videoRef2.current, {
+            duration: 0.8,
+            ease: 'power2.inOut',
+            onComplete: () => videoRef2.current.play()
         })
     })
     return (
@@ -45,7 +52,7 @@ const Home = ({ setToAgence, setToProjects, toAgence, toProjects }) => {
                 <span>L'étincelle</span><br />
                 <div className='flex'>
                     <span>qui</span>
-                    <div className='rounded-full h-[10vw] w-[15vw] -translate-y-10 object-center object-cover'><video autoPlay loop muted src="69496b2d.mp4" className='rounded-full'></video></div>
+                    <div className='rounded-full h-[10vw] w-[15vw] -translate-y-10 object-center object-cover'><video ref={videoRef2} autoPlay loop muted src="69496b2d.mp4" className='rounded-full'></video></div>
                     <span>génère</span>
                 </div> <br />
                 <span className='-translate-y-14'>La créativité</span>
