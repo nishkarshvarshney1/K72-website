@@ -3,8 +3,11 @@ import Logo from '../components/Logo';
 
 const Projects = () => {
   return (
-    <div className='m-0 p-0'>
+    <div className=''>
       <Logo />
+      <div>
+        
+      </div>
     </div>
   )
 }

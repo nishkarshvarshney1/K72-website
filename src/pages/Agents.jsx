@@ -31,7 +31,7 @@ const Agents = () => {
         scrub: 2,
         onUpdate: (e) => {
           let imageIndex = Math.round(imageArray.length * e.progress)
-          if (imageIndex < 8) {
+          if (imageIndex < imageArray.length) {
             imageRef.current.src = imageArray[imageIndex]
           } else {
             imageIndex = imageArray.length - 1
