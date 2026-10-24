@@ -8,6 +8,7 @@ const Home = ({ setToAgence, setToProjects, toAgence, toProjects }) => {
 
     const videoRef = useRef()
     const videoRef2 = useRef()
+    const menuHoverRef = useRef()
 
     useGSAP(() => {
         const video = videoRef.current
@@ -23,7 +24,7 @@ const Home = ({ setToAgence, setToProjects, toAgence, toProjects }) => {
         }
     }, [toAgence, toProjects])
 
-    useGSAP(()=>{
+    useGSAP(() => {
         videoRef.current.pause()
         gsap.from(videoRef.current, {
             scale: 1.2,
@@ -38,14 +39,33 @@ const Home = ({ setToAgence, setToProjects, toAgence, toProjects }) => {
             onComplete: () => videoRef2.current.play()
         })
     })
+
+    const { contextSafe } = useGSAP()
+    const menuHoverAnimation = contextSafe(()=>{
+        gsap.to(menuHoverRef.current, {
+            scaleY: 1,
+            duration: 0.15,
+            color: 'black'
+        })
+    })
+    const menuHoverLeave = contextSafe(()=>{
+        gsap.to(menuHoverRef.current, {
+            scaleY: 0,
+            duration: 0.15
+        })
+    })
     return (
         <div className='h-screen overflow-hidden relative'>
             <video ref={videoRef} className='size-full fixed top-0 left-0 object-cover object-center -z-1' autoPlay muted loop src="69496b2d.mp4"></video>
             <div className='flex justify-between items-start'>
                 <Logo fill='white' />
-                <div className='w-57 bg-black h-12.5 text-white hover:bg-(--green) origin-top py-5 px-8 flex flex-col items-end cursor-pointer'>
-                    <hr className='w-12 border mb-1' />
-                    <hr className='w-6.5 border' />
+                <div onMouseEnter={menuHoverAnimation} onMouseLeave={menuHoverLeave} className='relative group'>
+                    <div className='w-57 bg-black h-12.5 text-white group-hover:text-black transition duration-150 py-5 px-8 flex flex-col items-end cursor-pointer'>
+                        <hr className='w-12 border mb-1 relative z-1' />
+                        <hr className='w-6.5 border relative z-1' />
+                    </div>
+                    <div ref={menuHoverRef} className='w-full origin-top scale-y-0 bg-(--green) h-full text-black py-5 px-8 flex flex-col items-end cursor-pointer absolute top-0 left-0'>
+                    </div>
                 </div>
             </div>
             <div className='uppercase flex items-center h-screen flex-col text-[9.5vw]/[0.43] font-light text-white -translate-y-7'>
