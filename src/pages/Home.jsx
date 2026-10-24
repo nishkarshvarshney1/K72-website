@@ -56,7 +56,7 @@ const Home = ({ setToAgence, setToProjects, toAgence, toProjects }) => {
     })
     return (
         <div className='h-screen overflow-hidden relative'>
-            {toBigNav && <FullScreenNav />}
+            {toBigNav && <FullScreenNav setToBigNav={setToBigNav}/>}
             <video ref={videoRef} className='size-full fixed top-0 left-0 object-cover object-center -z-1' autoPlay muted loop src="69496b2d.mp4"></video>
             <div className='flex justify-between items-start'>
                 <Logo fill='white' />
