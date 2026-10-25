@@ -10,35 +10,35 @@ const FullScreenNav = ({ setToBigNav }) => {
     const movingRef = useRef()
     useGSAP(() => {
         gsap.timeline()
-        .from(navBgRef.current.children, {
-            height: 0,
-            duration: 0.3,
-            stagger: -0.06
-        })
-        .from(menuRef.current.children, {
-            opacity: 0,
-            rotationX: 30,
-            stagger: 0.1
-        })
-        .from(xRef.current, {
-            x: '100%',
-            duration: 0.5,
-            ease: 'power3.out'
-        }, '<-0.5')
+            .from(navBgRef.current.children, {
+                height: 0,
+                duration: 0.3,
+                stagger: -0.06
+            })
+            .from(menuRef.current.children, {
+                opacity: 0,
+                rotationX: 30,
+                stagger: 0.1
+            })
+            .from(xRef.current, {
+                x: '100%',
+                duration: 0.5,
+                ease: 'power3.out'
+            }, '<-0.5')
     })
-    const {contextSafe} = useGSAP()
-    const hoverAnimation = contextSafe(()=>{
+    const { contextSafe } = useGSAP()
+    const hoverAnimation = contextSafe(() => {
         const tl = gsap.timeline()
         tl.to('.js-hover', {
             scaleY: 1,
             duration: 0.2,
         })
     })
-    const hoverAnimationLeave = contextSafe(()=>{
+    const hoverAnimationLeave = contextSafe(() => {
         const tl = gsap.timeline()
         tl.to('.js-hover', {
             scaleY: 0,
-            duration: 0.2
+            duration: 0.2,
         })
     })
 
@@ -58,13 +58,13 @@ const FullScreenNav = ({ setToBigNav }) => {
                         PROJETS
                         <div className='js-hover origin-top bg-(--green) absolute top-0 left-0 w-full h-full scale-y-0 '>
                         </div>
-                        <div ref={movingRef} className='absolute top-0 left-0 h-full w-full flex whitespace-nowrap gap-3 text-black leading-none pt-[0.7vw] -z-1 group-hover:z-1 transition-[z-index] group-hover:delay-20'>
-                            <h1>SEE EVERYTHING</h1>
-                            <img src="PJC_SiteK72_Thumbnail_640x290.jpg" alt="" />
-                            <h1>SEE EVERYTHING</h1>
-                            <img src="Thumbnail.png" alt="" />
-                            </div>
+                        <div ref={movingRef} className='absolute top-0 left-0 h-full w-full flex items-center whitespace-nowrap gap-8 text-black leading-none opacity-1 group-hover:opacity-100 transition'>
+                            <h1 className='pt-[1.5vw]'>SEE EVERYTHING</h1>
+                            <img className='rounded-full w-60 object-cover shrink-0 h-[80%]' src="/images/fullscreennav/PJC_SiteK72_Thumbnail_640x290.jpg" alt="" />
+                            <h1 className='pt-[1.5vw]'>SEE EVERYTHING</h1>
+                            <img className='rounded-full w-60 object-cover shrink-0 h-[80%]' src="/images/fullscreennav/Thumbnail.png" alt="" />
                         </div>
+                    </div>
                     <div className='w-full bg-black border-gray-400 border-t flex justify-center items-center pt-[1.5vw]'>AGENCE</div>
                     <div className='w-full bg-black border-gray-400 border-t flex justify-center items-center pt-[1.5vw]'>CONTACT</div>
                     <div className='w-full bg-black border-gray-400 border-t border-b flex justify-center items-center pt-[1.5vw]'>BLOGUE</div>
