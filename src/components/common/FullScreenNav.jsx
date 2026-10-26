@@ -70,7 +70,6 @@ const FullScreenNav = ({ setToBigNav }) => {
             stagger: -0.06
         }, '<')
     })
-
     return (
         <div className='h-screen w-full fixed top-0 z-999'>
             <div ref={navBgRef} className='h-full w-full flex'>
@@ -83,17 +82,7 @@ const FullScreenNav = ({ setToBigNav }) => {
             <div id="pageNav" className='absolute z-1 top-0 h-full w-full flex flex-col justify-between'>
                 <div><X ref={xRef} onClick={closeAnimation} viewBox="5 5 14 14" className='hover:text-(--green) size-30 justify-self-end text-white cursor-pointer' strokeWidth={0.5} /></div>
                 <div ref={menuRef} className='text-white text-[8vw]/[0.78] mb-20'>
-                    <div onMouseEnter={hoverAnimation} onMouseLeave={hoverAnimationLeave} className='cursor-pointer group w-full bg-black border-gray-400 border-t flex justify-center items-center pt-[1.5vw] relative'>
-                        PROJETS
-                        <div className='js-hover origin-top bg-(--green) absolute top-0 left-0 w-full h-full scale-y-0 '>
-                        </div>
-                        <div ref={movingRef} className='absolute top-0 left-0 h-full w-full flex items-center whitespace-nowrap gap-8 text-black leading-none opacity-1 group-hover:opacity-100 transition'>
-                            <h1 className='pt-[1.5vw]'>SEE EVERYTHING</h1>
-                            <img className='rounded-full w-60 object-cover shrink-0 h-[80%]' src="/images/fullscreennav/PJC_SiteK72_Thumbnail_640x290.jpg" alt="" />
-                            <h1 className='pt-[1.5vw]'>SEE EVERYTHING</h1>
-                            <img className='rounded-full w-60 object-cover shrink-0 h-[80%]' src="/images/fullscreennav/Thumbnail.png" alt="" />
-                        </div>
-                    </div>
+                    <div className='w-full bg-black border-gray-400 border-t flex justify-center items-center pt-[1.5vw]'>PROJETS</div>
                     <div className='w-full bg-black border-gray-400 border-t flex justify-center items-center pt-[1.5vw]'>AGENCE</div>
                     <div className='w-full bg-black border-gray-400 border-t flex justify-center items-center pt-[1.5vw]'>CONTACT</div>
                     <div className='w-full bg-black border-gray-400 border-t border-b flex justify-center items-center pt-[1.5vw]'>BLOGUE</div>
