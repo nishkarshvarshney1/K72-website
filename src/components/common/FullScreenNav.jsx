@@ -9,22 +9,23 @@ const FullScreenNav = ({ setToBigNav }) => {
     const menuRef = useRef()
     const movingRef = useRef()
     const footerRef = useRef()
-    const tlLol = gsap.timeline()
+    const tlLol = useRef()
     useGSAP(() => {
-        tlLol.from(navBgRef.current.children, {
+        tlLol.current = gsap.timeline()
+        tlLol.current.from(navBgRef.current.children, {
             height: 0,
             duration: 0.3,
             stagger: -0.06
         })
-        tlLol.from(footerRef.current, {
+        tlLol.current.from(footerRef.current, {
             opacity: 0
         })
-        tlLol.from(menuRef.current.children, {
+        tlLol.current.from(menuRef.current.children, {
             opacity: 0,
             rotationX: 30,
             stagger: 0.1
         }, '<-0.2')
-        tlLol.from(xRef.current, {
+        tlLol.current.from(xRef.current, {
             x: '100%',
             duration: 0.5,
             ease: 'power3.out'
@@ -46,7 +47,7 @@ const FullScreenNav = ({ setToBigNav }) => {
         })
     })
     const closeAnimation = contextSafe(() => {
-        tlLol.pause()
+        tlLol.current.pause()
         const tl = gsap.timeline({
             onComplete: () => setToBigNav(false)
         })

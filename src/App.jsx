@@ -16,8 +16,8 @@ const App = () => {
   }, [])
   return (
     <div>
-      {/* <StairTransition toAgence={toAgence} toProjects={toProjects} setToAgence={setToAgence} setToProjects={setToProjects} 
-      setToHome={setToHome} toHome={toHome}/> */}
+      <StairTransition toAgence={toAgence} toProjects={toProjects} setToAgence={setToAgence} setToProjects={setToProjects} 
+      setToHome={setToHome} toHome={toHome}/>
       <Routes>
         <Route path='/' element={<Home setToProjects={setToProjects} setToAgence={setToAgence} setToHome={setToHome} toAgence={toAgence} toProjects={toProjects}/>} />
         <Route path='/projects' element={<Projects setToHome={setToHome}/>} />
