@@ -1,6 +1,6 @@
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
-import { X } from 'lucide-react';
+import { Globe, X } from 'lucide-react';
 import React, { useRef, useState } from 'react'
 
 const FullScreenNav = ({ setToBigNav }) => {
@@ -8,19 +8,23 @@ const FullScreenNav = ({ setToBigNav }) => {
     const xRef = useRef()
     const menuRef = useRef()
     const movingRef = useRef()
+    const footerRef = useRef()
+    const tlLol = gsap.timeline()
     useGSAP(() => {
-        const tl = gsap.timeline()
-        tl.from(navBgRef.current.children, {
+        tlLol.from(navBgRef.current.children, {
             height: 0,
             duration: 0.3,
             stagger: -0.06
         })
-        tl.from(menuRef.current.children, {
+        tlLol.from(footerRef.current, {
+            opacity: 0
+        })
+        tlLol.from(menuRef.current.children, {
             opacity: 0,
             rotationX: 30,
             stagger: 0.1
-        })
-        tl.from(xRef.current, {
+        }, '<-0.2')
+        tlLol.from(xRef.current, {
             x: '100%',
             duration: 0.5,
             ease: 'power3.out'
@@ -42,8 +46,15 @@ const FullScreenNav = ({ setToBigNav }) => {
         })
     })
     const closeAnimation = contextSafe(() => {
-        const tl = gsap.timeline()
+        tlLol.pause()
+        const tl = gsap.timeline({
+            onComplete: () => setToBigNav(false)
+        })
         tl.to(menuRef.current.children, {
+            opacity: 0,
+            duration: 0
+        })
+        tl.to(footerRef.current, {
             opacity: 0,
             duration: 0
         })
@@ -86,8 +97,9 @@ const FullScreenNav = ({ setToBigNav }) => {
                     <div className='w-full bg-black border-gray-400 border-t flex justify-center items-center pt-[1.5vw]'>CONTACT</div>
                     <div className='w-full bg-black border-gray-400 border-t border-b flex justify-center items-center pt-[1.5vw]'>BLOGUE</div>
                 </div>
-                <div className='grid grid-cols-3 bg-black text-white items-center'>
-                    <div>
+                <div ref={footerRef} className='grid grid-cols-3 bg-black text-white items-center px-3 py-2'>
+                    <div className='flex items-center gap-3'>
+                        <Globe className='size-9' strokeWidth={1} />
                         <span className='text-2xl'>MONTREAL_time</span>
                     </div>
                     <div className='flex gap-5 uppercase items-center text-xs whitespace-nowrap'>
@@ -96,11 +108,11 @@ const FullScreenNav = ({ setToBigNav }) => {
                         <h3>ethics report</h3>
                         <h3>consent choices</h3>
                     </div>
-                    <div className='flex gap-2 justify-self-end'>
-                        <div>FB</div>
-                        <div>FB</div>
-                        <div>FB</div>
-                        <div>FB</div>
+                    <div className='flex gap-2 justify-self-end text-4xl/[0.7]'>
+                        <div className='border-2 border-white pt-2  px-3 rounded-full'>FB</div>
+                        <div className='border-2 border-white pt-2  px-3 rounded-full'>IG</div>
+                        <div className='border-2 border-white pt-2 px-3 rounded-full'>IN</div>
+                        <div className='border-2 border-white pt-2  px-3 rounded-full'>BE</div>
                     </div>
                 </div>
             </div>
