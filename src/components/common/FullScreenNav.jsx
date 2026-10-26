@@ -1,7 +1,7 @@
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { X } from 'lucide-react';
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 
 const FullScreenNav = ({ setToBigNav }) => {
     const navBgRef = useRef()
@@ -9,22 +9,22 @@ const FullScreenNav = ({ setToBigNav }) => {
     const menuRef = useRef()
     const movingRef = useRef()
     useGSAP(() => {
-        gsap.timeline()
-            .from(navBgRef.current.children, {
-                height: 0,
-                duration: 0.3,
-                stagger: -0.06
-            })
-            .from(menuRef.current.children, {
-                opacity: 0,
-                rotationX: 30,
-                stagger: 0.1
-            })
-            .from(xRef.current, {
-                x: '100%',
-                duration: 0.5,
-                ease: 'power3.out'
-            }, '<-0.5')
+        const tl = gsap.timeline()
+        tl.from(navBgRef.current.children, {
+            height: 0,
+            duration: 0.3,
+            stagger: -0.06
+        })
+        tl.from(menuRef.current.children, {
+            opacity: 0,
+            rotationX: 30,
+            stagger: 0.1
+        })
+        tl.from(xRef.current, {
+            x: '100%',
+            duration: 0.5,
+            ease: 'power3.out'
+        }, '<-0.5')
     })
     const { contextSafe } = useGSAP()
     const hoverAnimation = contextSafe(() => {
@@ -41,6 +41,23 @@ const FullScreenNav = ({ setToBigNav }) => {
             duration: 0.2,
         })
     })
+    const closeAnimation = contextSafe(() => {
+        const tl = gsap.timeline()
+        tl.to(menuRef.current.children, {
+            opacity: 0,
+            duration: 0
+        })
+        tl.to(xRef.current, {
+            x: '100%',
+            duration: 0.5,
+            ease: 'power3.out'
+        })
+        tl.to(navBgRef.current.children, {
+            height: 0,
+            duration: 0.3,
+            stagger: -0.06
+        }, '<')
+    })
 
     return (
         <div className='h-screen w-full fixed top-0 z-999'>
@@ -52,7 +69,7 @@ const FullScreenNav = ({ setToBigNav }) => {
                 <div className='bg-black w-1/5 h-full'></div>
             </div>
             <div id="pageNav" className='absolute z-1 top-0 h-full w-full flex flex-col justify-between'>
-                <div><X ref={xRef} onClick={() => setToBigNav(false)} viewBox="5 5 14 14" className='hover:text-(--green) size-30 justify-self-end text-white cursor-pointer' strokeWidth={0.5} /></div>
+                <div><X ref={xRef} onClick={closeAnimation} viewBox="5 5 14 14" className='hover:text-(--green) size-30 justify-self-end text-white cursor-pointer' strokeWidth={0.5} /></div>
                 <div ref={menuRef} className='text-white text-[8vw]/[0.78] mb-20'>
                     <div onMouseEnter={hoverAnimation} onMouseLeave={hoverAnimationLeave} className='cursor-pointer group w-full bg-black border-gray-400 border-t flex justify-center items-center pt-[1.5vw] relative'>
                         PROJETS
@@ -71,9 +88,9 @@ const FullScreenNav = ({ setToBigNav }) => {
                 </div>
                 <div className='grid grid-cols-3 bg-black text-white items-center'>
                     <div>
-                        <span>MONTREAL_time</span>
+                        <span className='text-2xl'>MONTREAL_time</span>
                     </div>
-                    <div className='flex gap-5 uppercase items-center'>
+                    <div className='flex gap-5 uppercase items-center text-xs whitespace-nowrap'>
                         <h3>privacy policy</h3>
                         <h3>privacy notice</h3>
                         <h3>ethics report</h3>
