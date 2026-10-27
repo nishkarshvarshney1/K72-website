@@ -47,11 +47,10 @@ const Projects = ({ setToHome }) => {
   ]
   useGSAP(() => {
     gsap.from('.product-row', {
-      height: 100,
+      height: 0,
       scrollTrigger: {
         trigger: '#container',
-        markers: true,
-        start: 'top 100%',
+        start: 'top 120%',
         end: 'top -150%',
         scrub: true
       }
