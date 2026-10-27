@@ -4,10 +4,13 @@ import ProjectCard from '../components/projects/ProjectCard';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import RightNav from '../components/common/RightNav';
+import RightSmallNav from '../components/common/RightSmallNav';
+import FullScreenNav from '../components/common/FullScreenNav';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Projects = ({ setToHome }) => {
+const Projects = ({ setToHome, setToBigNav, toBigNav }) => {
   const productImages = [
     {
       image1: '/images/projects/PME-MTL_Thumbnail.jpg',
@@ -45,20 +48,14 @@ const Projects = ({ setToHome }) => {
       image1: '/images/projects/WS---K72.ca---Thumbnail.jpg',
     }
   ]
-  useGSAP(() => {
-    gsap.from('.product-row', {
-      height: 0,
-      scrollTrigger: {
-        trigger: '#container',
-        start: 'top 120%',
-        end: 'top -150%',
-        scrub: true
-      }
-    })
-  })
   return (
-    <div className=''>
-      <Logo setToHome={setToHome} />
+    <div className='relative'>
+      {toBigNav && <FullScreenNav setToBigNav={setToBigNav} />}
+      <div className='flex justify-between items-start'>
+        <Logo setToHome={setToHome} />
+      <RightSmallNav setToBigNav={setToBigNav}/>
+      </div>
+      <RightNav setToBigNav={setToBigNav}/>
       <div>
         <h1 className='text-[13.5vw]/[0.7] mt-[36vh] pl-3'>PROJETS <sup className='text-4xl'>17</sup></h1>
         <div id='container' className='px-3 flex flex-col gap-3'>

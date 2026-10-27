@@ -10,6 +10,8 @@ const App = () => {
   const [toProjects, setToProjects] = useState(false)
   const [toAgence, setToAgence] = useState(false)
   const [toHome, setToHome] = useState(false)
+  const [toBigNav, setToBigNav] = useState(false)
+  console.log(toBigNav)
   useEffect(() => {
     const locomotiveScroll = new LocomotiveScroll()
     return () => locomotiveScroll.destroy()
@@ -19,8 +21,8 @@ const App = () => {
       <StairTransition toAgence={toAgence} toProjects={toProjects} setToAgence={setToAgence} setToProjects={setToProjects} 
       setToHome={setToHome} toHome={toHome}/>
       <Routes>
-        <Route path='/' element={<Home setToProjects={setToProjects} setToAgence={setToAgence} setToHome={setToHome} toAgence={toAgence} toProjects={toProjects}/>} />
-        <Route path='/projects' element={<Projects setToHome={setToHome}/>} />
+        <Route path='/' element={<Home toBigNav={toBigNav} setToBigNav={setToBigNav} setToProjects={setToProjects} setToAgence={setToAgence} setToHome={setToHome} toAgence={toAgence} toProjects={toProjects}/>} />
+        <Route path='/projects' element={<Projects setToHome={setToHome} setToBigNav={setToBigNav} toBigNav={toBigNav}/>} />
         <Route path='/agence' element={<Agents setToHome={setToHome}/>} />
       </Routes>
     </div>
