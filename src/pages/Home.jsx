@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 import FullScreenNav from '../components/common/FullScreenNav';
 import RightSmallNav from '../components/common/RightSmallNav';
 
-const Home = ({ setToAgence, setToProjects, toAgence, toProjects, toBigNav, setToBigNav }) => {
+const Home = ({ setToAgence, setToProjects, toAgence, toProjects, toBigNav, setToBigNav, toHome }) => {
 
     const videoRef = useRef()
     const videoRef2 = useRef()

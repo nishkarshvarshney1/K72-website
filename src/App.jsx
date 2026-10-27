@@ -21,9 +21,9 @@ const App = () => {
       <StairTransition toAgence={toAgence} toProjects={toProjects} setToAgence={setToAgence} setToProjects={setToProjects} 
       setToHome={setToHome} toHome={toHome}/>
       <Routes>
-        <Route path='/' element={<Home toBigNav={toBigNav} setToBigNav={setToBigNav} setToProjects={setToProjects} setToAgence={setToAgence} setToHome={setToHome} toAgence={toAgence} toProjects={toProjects}/>} />
-        <Route path='/projects' element={<Projects setToProjects={setToProjects} setToAgence={setToAgence} setToHome={setToHome} setToBigNav={setToBigNav} toBigNav={toBigNav}/>} />
-        <Route path='/agence' element={<Agents toBigNav={toBigNav} setToBigNav={setToBigNav} setToAgence={setToAgence} setToProjects={setToProjects} setToHome={setToHome}/>} />
+        <Route path='/' element={<Home toBigNav={toBigNav} setToBigNav={setToBigNav} setToProjects={setToProjects} setToAgence={setToAgence} setToHome={setToHome} toAgence={toAgence} toProjects={toProjects} toHome={toHome}/>} />
+        <Route path='/projects' element={<Projects setToProjects={setToProjects} setToAgence={setToAgence} setToHome={setToHome} setToBigNav={setToBigNav} toBigNav={toBigNav} toAgence={toAgence} toHome={toHome} toProjects={toProjects}/>} />
+        <Route path='/agence' element={<Agents toAgence={toAgence} toHome={toHome} toProjects={toProjects} toBigNav={toBigNav} setToBigNav={setToBigNav} setToAgence={setToAgence} setToProjects={setToProjects} setToHome={setToHome}/>} />
       </Routes>
     </div>
   )

@@ -10,7 +10,7 @@ import FullScreenNav from '../components/common/FullScreenNav';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Projects = ({ setToHome, setToBigNav, toBigNav, setToAgence }) => {
+const Projects = ({ setToHome, setToBigNav, toBigNav, setToAgence, toAgence, toHome, toProjects }) => {
   const productImages = [
     {
       image1: '/images/projects/PME-MTL_Thumbnail.jpg',
@@ -51,7 +51,7 @@ const Projects = ({ setToHome, setToBigNav, toBigNav, setToAgence }) => {
   const containerRef = useRef()
   useGSAP(()=>{
     gsap.from(containerRef.current.children, {
-      delay: 0.6,
+      delay: 0.5,
       y: -40,
       duration: 0.5,
       opacity: 0,
@@ -62,7 +62,7 @@ const Projects = ({ setToHome, setToBigNav, toBigNav, setToAgence }) => {
     <div className='relative'>
       {toBigNav && <FullScreenNav setToBigNav={setToBigNav} />}
       <div className='flex justify-between items-start'>
-        <Logo setToHome={setToHome} />
+        <Logo setToHome={setToHome} fill={toBigNav || toAgence || toHome || toProjects ? 'white' : 'black'} />
       <RightSmallNav setToBigNav={setToBigNav}/>
       </div>
       <RightNav setToBigNav={setToBigNav} setToAgence={setToAgence}/>

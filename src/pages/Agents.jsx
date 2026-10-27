@@ -10,7 +10,7 @@ import FullScreenNav from '../components/common/FullScreenNav';
 
 gsap.registerPlugin(ScrollTrigger)
 
-const Agents = ({setToHome, setToProjects, setToBigNav, toBigNav}) => {
+const Agents = ({ setToHome, setToProjects, setToBigNav, toBigNav, toHome, toProjects, toAgence }) => {
   const imageDivRef = useRef(null)
   const imageRef = useRef(null)
 
@@ -25,7 +25,7 @@ const Agents = ({setToHome, setToProjects, setToBigNav, toBigNav}) => {
     'images/joel_480X640_3.jpg'
   ]
 
-  useGSAP(()=>{
+  useGSAP(() => {
     gsap.to(imageDivRef.current, {
       scrollTrigger: {
         trigger: imageDivRef.current,
@@ -44,23 +44,23 @@ const Agents = ({setToHome, setToProjects, setToBigNav, toBigNav}) => {
       }
     })
     gsap.timeline()
-    .from('.js-ref', {
-      delay: 0.5,
-      duration: 0.5,
-      yPercent: -150,
-      stagger: 0.1,
-    })
-    .from(imageDivRef.current, {
-      opacity: 0,
-      width: 0,
-      duration: 1,
-      ease: 'expo.out'
-    }, '-=0.3')
+      .from('.js-ref', {
+        delay: 0.5,
+        duration: 0.5,
+        yPercent: -150,
+        stagger: 0.1,
+      })
+      .from(imageDivRef.current, {
+        opacity: 0,
+        width: 0,
+        duration: 1,
+        ease: 'expo.out'
+      }, '-=0.3')
   })
   return (
     <div>
       {toBigNav && <FullScreenNav setToBigNav={setToBigNav} />}
-      <Logo setToHome={setToHome}/>
+      <Logo setToHome={setToHome} fill={toBigNav || toAgence || toHome || toProjects ? 'white' : 'black'} />
       <RightSmallNav setToBigNav={setToBigNav} />
       <RightNav setToBigNav={setToBigNav} setToProjects={setToProjects} />
       <div ref={imageDivRef} className='rounded-2xl h-73 w-55  absolute top-66 left-112 -z-1 overflow-hidden '>
@@ -69,7 +69,7 @@ const Agents = ({setToHome, setToProjects, setToBigNav, toBigNav}) => {
       <div className='pt-20 overflow-hidden text-[20vw]/[0.6] mt-[45vh] uppercase text-center'>
         <h1 className='js-ref'>Soixan7e</h1>
         <div className='pt-20 overflow-hidden'>
-        <h1 className='js-ref'>Douze</h1>
+          <h1 className='js-ref'>Douze</h1>
         </div>
       </div>
       <div className='flex justify-end'>
