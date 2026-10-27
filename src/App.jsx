@@ -11,7 +11,7 @@ const App = () => {
   const [toAgence, setToAgence] = useState(false)
   const [toHome, setToHome] = useState(false)
   const [toBigNav, setToBigNav] = useState(false)
-  console.log(toBigNav)
+  console.log(toAgence)
   useEffect(() => {
     const locomotiveScroll = new LocomotiveScroll()
     return () => locomotiveScroll.destroy()
@@ -22,8 +22,8 @@ const App = () => {
       setToHome={setToHome} toHome={toHome}/>
       <Routes>
         <Route path='/' element={<Home toBigNav={toBigNav} setToBigNav={setToBigNav} setToProjects={setToProjects} setToAgence={setToAgence} setToHome={setToHome} toAgence={toAgence} toProjects={toProjects}/>} />
-        <Route path='/projects' element={<Projects setToHome={setToHome} setToBigNav={setToBigNav} toBigNav={toBigNav}/>} />
-        <Route path='/agence' element={<Agents setToHome={setToHome}/>} />
+        <Route path='/projects' element={<Projects setToProjects={setToProjects} setToAgence={setToAgence} setToHome={setToHome} setToBigNav={setToBigNav} toBigNav={toBigNav}/>} />
+        <Route path='/agence' element={<Agents setToAgence={setToAgence} setToProjects={setToProjects} setToHome={setToHome}/>} />
       </Routes>
     </div>
   )

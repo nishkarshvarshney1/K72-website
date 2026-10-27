@@ -10,7 +10,7 @@ import FullScreenNav from '../components/common/FullScreenNav';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Projects = ({ setToHome, setToBigNav, toBigNav }) => {
+const Projects = ({ setToHome, setToBigNav, toBigNav, setToAgence }) => {
   const productImages = [
     {
       image1: '/images/projects/PME-MTL_Thumbnail.jpg',
@@ -55,7 +55,7 @@ const Projects = ({ setToHome, setToBigNav, toBigNav }) => {
         <Logo setToHome={setToHome} />
       <RightSmallNav setToBigNav={setToBigNav}/>
       </div>
-      <RightNav setToBigNav={setToBigNav}/>
+      <RightNav setToBigNav={setToBigNav} setToAgence={setToAgence}/>
       <div>
         <h1 className='text-[13.5vw]/[0.7] mt-[36vh] pl-3'>PROJETS <sup className='text-4xl'>17</sup></h1>
         <div id='container' className='px-3 flex flex-col gap-3'>
