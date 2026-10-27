@@ -48,6 +48,16 @@ const Projects = ({ setToHome, setToBigNav, toBigNav, setToAgence }) => {
       image1: '/images/projects/WS---K72.ca---Thumbnail.jpg',
     }
   ]
+  const containerRef = useRef()
+  useGSAP(()=>{
+    gsap.from(containerRef.current.children, {
+      delay: 0.6,
+      y: -40,
+      duration: 0.5,
+      opacity: 0,
+      stagger: 0.05
+    })
+  })
   return (
     <div className='relative'>
       {toBigNav && <FullScreenNav setToBigNav={setToBigNav} />}
@@ -56,7 +66,7 @@ const Projects = ({ setToHome, setToBigNav, toBigNav, setToAgence }) => {
       <RightSmallNav setToBigNav={setToBigNav}/>
       </div>
       <RightNav setToBigNav={setToBigNav} setToAgence={setToAgence}/>
-      <div>
+      <div ref={containerRef}>
         <h1 className='text-[13.5vw]/[0.7] mt-[36vh] pl-3'>PROJETS <sup className='text-4xl'>17</sup></h1>
         <div id='container' className='px-3 flex flex-col gap-3'>
           {productImages.map((e, idx) => {
