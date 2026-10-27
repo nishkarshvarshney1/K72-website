@@ -4,10 +4,13 @@ import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import RightNav from '../components/common/RightNav';
+import RightSmallNav from '../components/common/RightSmallNav';
+import StairTransition from '../components/StairTransition';
+import FullScreenNav from '../components/common/FullScreenNav';
 
 gsap.registerPlugin(ScrollTrigger)
 
-const Agents = ({setToHome, setToProjects}) => {
+const Agents = ({setToHome, setToProjects, setToBigNav, toBigNav}) => {
   const imageDivRef = useRef(null)
   const imageRef = useRef(null)
 
@@ -43,8 +46,10 @@ const Agents = ({setToHome, setToProjects}) => {
   })
   return (
     <div>
+      {toBigNav && <FullScreenNav setToBigNav={setToBigNav} />}
       <Logo setToHome={setToHome}/>
-      <RightNav setToProjects={setToProjects} />
+      <RightSmallNav setToBigNav={setToBigNav} />
+      <RightNav setToBigNav={setToBigNav} setToProjects={setToProjects} />
       <div ref={imageDivRef} className='rounded-2xl h-73  absolute top-66 left-112 -z-1 overflow-hidden '>
         <img ref={imageRef} className="size-full object-cover object-center" alt="" />
       </div>

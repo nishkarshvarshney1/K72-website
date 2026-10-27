@@ -1,8 +1,19 @@
-
+import { useGSAP } from "@gsap/react";
+import { gsap } from "gsap";
+import { useRef } from "react";
 
 const RightNav = ({ setToBigNav, setToAgence, setToProjects }) => {
+    const containerRef = useRef()
+    useGSAP(()=>{
+        gsap.from(containerRef.current.children, {
+            delay: 0.1,
+            yPercent: -100,
+            duration: 0.5,
+            stagger: -0.2
+        })
+    }, {scope: containerRef})
     return (
-        <div className='flex text-xl font-light tracking-wider uppercase text-white items-start absolute right-0 top-0'>
+        <div ref={containerRef} className='flex text-xl font-light tracking-wider uppercase text-white items-start absolute right-0 top-0'>
             <div onClick={() => setToProjects(true)} className='bg-black w-70 h-13 flex items-end relative group cursor-pointer'>
                 <span className='px-3 group-hover:text-black relative z-1'>projets</span>
                 <div className='size-full bg-(--green) absolute scale-y-0 transition group-hover:scale-y-100 origin-top'></div>
