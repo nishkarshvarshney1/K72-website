@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import Logo from '../components/Logo';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
@@ -8,13 +8,14 @@ import RightSmallNav from '../components/common/RightSmallNav';
 import StairTransition from '../components/StairTransition';
 import FullScreenNav from '../components/common/FullScreenNav';
 import Footer from '../components/common/Footer';
+import Marquee from '../components/Agents/Marquee';
 
 gsap.registerPlugin(ScrollTrigger)
 
 const Agents = ({ setToHome, setToProjects, setToBigNav, toBigNav, toHome, toProjects, toAgence }) => {
   const imageDivRef = useRef(null)
   const imageRef = useRef(null)
-
+  const [bgColor, setBgColor] = useState('white')
   const imageArray = [
     'images/Carl_480x640.jpg',
     'images/Olivier_480x640.jpg',
@@ -59,7 +60,7 @@ const Agents = ({ setToHome, setToProjects, setToBigNav, toBigNav, toHome, toPro
       }, '-=0.3')
   })
   return (
-    <div>
+    <div className={`bg-${bgColor} text-${bgColor === 'white' ? 'black' : 'white'} transition duration-500`}>
       {toBigNav && <FullScreenNav setToBigNav={setToBigNav} />}
       <Logo setToHome={setToHome} fill={toBigNav || toAgence || toHome || toProjects ? 'white' : 'black'} />
       <RightSmallNav setToBigNav={setToBigNav} />
@@ -93,6 +94,7 @@ const Agents = ({ setToHome, setToProjects, setToBigNav, toBigNav, toHome, toPro
           <p>Notre culture_ c’est l’ouverture aux autres. Point. Tout l’équipage participe à bâtir une agence dont on est fiers.</p>
         </div>
       </div>
+      <Marquee setBgColor={setBgColor}/>
       <Footer />
     </div>
   )
