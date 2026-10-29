@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import RightNav from '../components/common/RightNav';
 import RightSmallNav from '../components/common/RightSmallNav';
 import FullScreenNav from '../components/common/FullScreenNav';
+import Footer from '../components/common/Footer';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,6 +77,7 @@ const Projects = ({ setToHome, setToBigNav, toBigNav, setToAgence, toAgence, toH
           })}
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

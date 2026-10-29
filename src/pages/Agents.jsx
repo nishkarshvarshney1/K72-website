@@ -7,6 +7,7 @@ import RightNav from '../components/common/RightNav';
 import RightSmallNav from '../components/common/RightSmallNav';
 import StairTransition from '../components/StairTransition';
 import FullScreenNav from '../components/common/FullScreenNav';
+import Footer from '../components/common/Footer';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -92,6 +93,7 @@ const Agents = ({ setToHome, setToProjects, setToBigNav, toBigNav, toHome, toPro
           <p>Notre culture_ c’est l’ouverture aux autres. Point. Tout l’équipage participe à bâtir une agence dont on est fiers.</p>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
