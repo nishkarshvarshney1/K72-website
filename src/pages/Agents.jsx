@@ -45,6 +45,13 @@ const Agents = ({ setToHome, setToProjects, setToBigNav, toBigNav, toHome, toPro
         }
       }
     })
+    ScrollTrigger.create({
+        trigger: '.gsapPin',
+        start: 'top 0',
+        end: 'top 100%',
+        markers: true,
+        pin: true
+      })
     gsap.timeline()
       .from('.js-ref', {
         delay: 0.5,
@@ -96,9 +103,9 @@ const Agents = ({ setToHome, setToProjects, setToBigNav, toBigNav, toHome, toPro
       </div>
       <Marquee setBgColor={setBgColor}/>
       <footer>
-          <div className='h-screen w-full bg-orange-400 rounded-4xl'></div>
+          <div className='gsapPin h-screen w-full bg-orange-400 rounded-4xl'></div>
           <div className='h-screen w-full bg-amber-400 translate-y-[-10vh] rounded-4xl'></div>
-          <div className='h-[110vh] w-full bg-yellow-900 rounded-4xl translate-y-[-20vh]'></div>
+          <div className=' h-[110vh] w-full bg-yellow-900 rounded-4xl translate-y-[-20vh]'></div>
       </footer>
       <Footer />
     </div>
