@@ -30,7 +30,7 @@ const Marquee = ({ setBgColor }) => {
         })
     })
     return (
-        <div className='relative mt-100'>
+        <div className='relative mt-100 overflow-x-hidden'>
             <div ref={containerRef} className='h-screen relative z-1 w-2/5 m-auto rounded-3xl overflow-hidden'>
                 <img className='size-full' src="/blank.jpg" alt="" />
             </div>
