@@ -13,7 +13,7 @@ const Marquee = ({ setBgColor }) => {
         ScrollTrigger.create({
             trigger: containerRef.current,
             start: 'top 70%',
-            end: 'top -70%',
+            end: 'max',
             onToggle: (self) => setBgColor(self.isActive ? 'black' : 'white')
         })
         gsap.to(moveLeftRef.current, {
@@ -30,7 +30,7 @@ const Marquee = ({ setBgColor }) => {
         })
     })
     return (
-        <div className='relative mt-100 overflow-x-hidden'>
+        <div className='relative my-100 overflow-x-hidden'>
             <div ref={containerRef} className='h-screen relative z-1 w-2/5 m-auto rounded-3xl overflow-hidden'>
                 <img className='size-full' src="/blank.jpg" alt="" />
             </div>

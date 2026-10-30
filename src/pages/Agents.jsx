@@ -49,7 +49,6 @@ const Agents = ({ setToHome, setToProjects, setToBigNav, toBigNav, toHome, toPro
         trigger: '.gsapPin1',
         start: 'top top',
         end: '+=100%',
-        markers: true,
         pin: true,
         pinSpacing: false
       })
@@ -128,15 +127,15 @@ const Agents = ({ setToHome, setToProjects, setToBigNav, toBigNav, toHome, toPro
           <div className='gsapPin2 group cursor-pointer h-screen w-full rounded-4xl flex items-center justify-center relative text-white'>
             <img className='size-full group-hover:scale-105 duration-400 transition object-cover object-center' src="/images/projects/chalaxeur-thumbnail_img.jpg" alt="" />
             <div className='flex flex-col text-center absolute'>
-              <h4 className='text-[2vw]'>Opto-Réseau</h4>
-              <h1 className='text-[5vw] group-hover:underline'>We see you like no other</h1>
+              <h4 className='text-[2vw]'>Lamajeure</h4>
+              <h1 className='text-[5vw] group-hover:underline'>Lamajeure</h1>
             </div>
           </div>
           <div className='gsapPin3 group cursor-pointer h-screen w-full rounded-4xl flex items-center justify-center relative text-white'>
             <img className='size-full group-hover:scale-105 duration-400 transition object-cover object-center' src="/images/projects/Fruite_thumbnail_bbq.jpg" alt="" />
             <div className='flex flex-col text-center absolute'>
-              <h4 className='text-[2vw]'>Opto-Réseau</h4>
-              <h1 className='text-[5vw] group-hover:underline'>We see you like no other</h1>
+              <h4 className='text-[2vw]'>Lessonde</h4>
+              <h1 className='text-[5vw] group-hover:underline'>Fruité</h1>
             </div>
           </div>
       </footer>
