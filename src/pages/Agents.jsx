@@ -46,11 +46,26 @@ const Agents = ({ setToHome, setToProjects, setToBigNav, toBigNav, toHome, toPro
       }
     })
     ScrollTrigger.create({
-        trigger: '.gsapPin',
-        start: 'top 0',
-        end: 'top 100%',
+        trigger: '.gsapPin1',
+        start: 'top top',
+        end: '+=100%',
         markers: true,
-        pin: true
+        pin: true,
+        pinSpacing: false
+      })
+    ScrollTrigger.create({
+        trigger: '.gsapPin2',
+        start: 'top top',
+        end: '+=100%',
+        pin: true,
+        pinSpacing: false
+      })
+    ScrollTrigger.create({
+        trigger: '.gsapPin3',
+        start: 'top top',
+        end: '+=100%',
+        pin: true,
+        pinSpacing: false
       })
     gsap.timeline()
       .from('.js-ref', {
@@ -103,9 +118,27 @@ const Agents = ({ setToHome, setToProjects, setToBigNav, toBigNav, toHome, toPro
       </div>
       <Marquee setBgColor={setBgColor}/>
       <footer>
-          <div className='gsapPin h-screen w-full bg-orange-400 rounded-4xl'></div>
-          <div className='h-screen w-full bg-amber-400 translate-y-[-10vh] rounded-4xl'></div>
-          <div className=' h-[110vh] w-full bg-yellow-900 rounded-4xl translate-y-[-20vh]'></div>
+          <div className='gsapPin1 group cursor-pointer h-screen w-full rounded-4xl flex items-center justify-center relative text-white'>
+            <img className='size-full group-hover:scale-105 duration-400 transition object-cover object-center' src="/images/projects/thumbnailimage_opto.jpg" alt="" />
+            <div className='flex flex-col text-center absolute'>
+              <h4 className='text-[2vw]'>Opto-Réseau</h4>
+              <h1 className='text-[5vw] group-hover:underline'>We see you like no other</h1>
+            </div>
+          </div>
+          <div className='gsapPin2 group cursor-pointer h-screen w-full rounded-4xl flex items-center justify-center relative text-white'>
+            <img className='size-full group-hover:scale-105 duration-400 transition object-cover object-center' src="/images/projects/chalaxeur-thumbnail_img.jpg" alt="" />
+            <div className='flex flex-col text-center absolute'>
+              <h4 className='text-[2vw]'>Opto-Réseau</h4>
+              <h1 className='text-[5vw] group-hover:underline'>We see you like no other</h1>
+            </div>
+          </div>
+          <div className='gsapPin3 group cursor-pointer h-screen w-full rounded-4xl flex items-center justify-center relative text-white'>
+            <img className='size-full group-hover:scale-105 duration-400 transition object-cover object-center' src="/images/projects/Fruite_thumbnail_bbq.jpg" alt="" />
+            <div className='flex flex-col text-center absolute'>
+              <h4 className='text-[2vw]'>Opto-Réseau</h4>
+              <h1 className='text-[5vw] group-hover:underline'>We see you like no other</h1>
+            </div>
+          </div>
       </footer>
       <Footer />
     </div>
