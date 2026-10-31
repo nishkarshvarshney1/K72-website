@@ -15,6 +15,7 @@ const RightNav = ({ setToBigNav, setToAgence, setToProjects }) => {
             stagger: -0.2
         })
         gsap.to(containerRef.current, {
+            zIndex: 0,
             yPercent: -100,
             duration: 0.5,
             scrollTrigger: {
@@ -25,7 +26,7 @@ const RightNav = ({ setToBigNav, setToAgence, setToProjects }) => {
         })
     })
     return (
-        <div ref={containerRef} className='flex text-xl font-light tracking-wider uppercase text-white items-start fixed right-0 top-0'>
+        <div ref={containerRef} className='flex text-xl font-light tracking-wider uppercase z-10 text-white items-start fixed right-0 top-0'>
             <div onClick={() => setToProjects(true)} className='bg-black w-70 h-13 flex items-end relative group cursor-pointer'>
                 <span className='px-3 group-hover:text-black relative z-1'>projets</span>
                 <div className='size-full bg-(--green) absolute scale-y-0 transition group-hover:scale-y-100 origin-top'></div>
