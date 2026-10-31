@@ -13,7 +13,7 @@ const Marquee = ({ setBgColor }) => {
         ScrollTrigger.create({
             trigger: containerRef.current,
             start: 'top 70%',
-            end: 'max',
+            end: 'max', 
             onToggle: (self) => setBgColor(self.isActive ? 'black' : 'white')
         })
         gsap.to(moveLeftRef.current, {
